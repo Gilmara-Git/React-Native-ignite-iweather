@@ -38,6 +38,10 @@ describe('Component: SelectList', ()=>{
                     const options =  screen.getByTestId('options');
                     expect(options.children).toHaveLength(0);
 
+                    //se fosse tipar
+                    // const options : View =  screen.getByTestId('options');
+                    // expect(options.props.children).toHaveLength(0); // assim acessa o children sem erros de typescript
+
 
         })
 })
