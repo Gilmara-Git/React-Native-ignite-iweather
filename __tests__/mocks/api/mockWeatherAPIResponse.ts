@@ -4,6 +4,7 @@ const currentDate = new Date();
 const nextDay = new Date();
 nextDay.setDate(currentDate.getDate() +1); 
 
+//mocking how API returns data
 export const mockWeatherAPIResponse: WeatherAPIResponseProps = {
     list: [
         {
