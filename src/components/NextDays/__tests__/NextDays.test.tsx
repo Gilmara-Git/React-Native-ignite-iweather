@@ -43,11 +43,11 @@ describe('Component: NextDays', ()=>{
     ]
 
        const {debug} =  render(<NextDays data={nextDays}/>);
-       debug()
+    //    debug()
 
         const next5Days =  screen.getByTestId('next-5-days-wrapper');
         expect(screen.getByText('36C')).toBeTruthy();
-        console.log(Array.isArray(next5Days.children)) //true
+        // console.log(Array.isArray(next5Days.children)) //true
         expect(next5Days.children).toBeInstanceOf(Array)
         expect(next5Days.children.length).toBe(5);
 

@@ -15,7 +15,7 @@ describe('Component: Day', () => {
         }} 
         />)
 
-      debug()
+    //   debug()
 
       expect(screen.getByText('08/04')).toBeTruthy();
     })

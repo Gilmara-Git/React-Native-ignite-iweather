@@ -11,7 +11,7 @@ describe('Component: WeatherItem', ()=>{
             />
             )
             
-        debug();
+        // debug();
 
         const title = screen.getByText('Rain probability');
         const value = screen.getByText('2.05/Km');
