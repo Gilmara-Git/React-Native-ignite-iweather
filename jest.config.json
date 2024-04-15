@@ -1,5 +1,6 @@
 {
     "preset": "jest-expo",
+    "bail":  true,
     "setupFiles": [
             "./__tests__/mocks/libs/async-storage.js",
             "./__tests__/mocks/libs/safe-area-provider.js"
