@@ -14,7 +14,8 @@ describe('Screen: Search', ()=>{
 
 
         const searchInput = screen.getByTestId("search-input");
-         fireEvent.changeText(searchInput, 'Boston');
+        //  fireEvent.changeText(searchInput, 'Boston');
+         fireEvent.changeText(searchInput, 'São Paulo');
 
          
          const option =  await waitFor(()=> screen.findByText(/São paulo/i));
