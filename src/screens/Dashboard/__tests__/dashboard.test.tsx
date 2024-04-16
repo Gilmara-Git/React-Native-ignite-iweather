@@ -2,7 +2,7 @@ import { Dashboard } from '@screens/Dashboard';
 import { render , screen, waitFor, fireEvent, act} from '@__tests__/utils/customRender';
 
 import { CityProps } from '@services/getCityByNameService';
-import { saveStorageCity } from '@libs/asyncStorage/cityStorage';
+import { removeStorageCity, saveStorageCity } from '@libs/asyncStorage/cityStorage';
 
 import { api } from '@services/api';
 import { mockWeatherAPIResponse } from '@__tests__/mocks/api/mockWeatherAPIResponse';
@@ -22,13 +22,7 @@ describe('Screen: Dashboard', () => {
              await saveStorageCity(cityInStorage);
     
         })
-        // Would show Loading if there were no city in storage
-        // it('should show "Loading component" when there is no City returned from Context/Storage', async()=>{
-        //     await waitFor (()=>render(<Dashboard />));
-        //     const loadingComponent = screen.getByTestId('loading');
-        //     expect(loadingComponent).toBeTruthy();
-        // });
-     
+       
         it('should show current city weather', async()=>{
         jest.spyOn(api, 'get').mockResolvedValue({data: mockWeatherAPIResponse});    
   
@@ -81,6 +75,13 @@ describe('Screen: Dashboard', () => {
         })
 
 
-
+         // Would show Loading if there were no city in storage
+         it('should show "Loading component" when there is no City returned from Context/Storage', async()=>{
+            await removeStorageCity() // ensuring there is no City returned from Context
+            await waitFor (()=>render(<Dashboard />));
+            const loadingComponent = screen.getByTestId('loading');
+            expect(loadingComponent).toBeTruthy();
+        });
+     
  
 });
