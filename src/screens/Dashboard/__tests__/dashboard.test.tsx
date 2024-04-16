@@ -83,5 +83,21 @@ describe('Screen: Dashboard', () => {
             expect(loadingComponent).toBeTruthy();
         });
      
+
+        it('should run setTimeout after 5 seconds calling function getCities', ()=>{
+            jest.spyOn(api, 'get').mockResolvedValueOnce({data: mockCityAPIResponse})
+            const getCities = jest.fn();
+
+            jest.useFakeTimers(); // faking timers
+            jest.spyOn(global, 'setTimeout');
+
+            setTimeout(()=>{ getCities('São Paulo') }, 500);
+
+            expect(setTimeout).toHaveBeenCalledTimes(1);
+            expect(setTimeout).toHaveBeenCalledWith(expect.any(Function),500);
+
+            jest.useRealTimers(); // restoring timers to normal behavior
+
+        });
  
 });
