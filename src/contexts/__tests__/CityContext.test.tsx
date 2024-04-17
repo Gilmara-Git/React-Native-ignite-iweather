@@ -16,7 +16,7 @@ describe('Context: CityContext', ()=>{
 
       )
 
-    console.log(result.current.city?.name)
+    // console.log(result.current.city?.name)
     expect(result.current.city?.name).toBe('Tampa');
         
     });
